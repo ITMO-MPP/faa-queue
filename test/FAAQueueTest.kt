@@ -41,8 +41,6 @@ class FAAQueueTest {
         StressOptions()
             .iterations(100)
             .invocationsPerIteration(50_000)
-            .actorsBefore(2)
-            .actorsAfter(2)
             .threads(3)
             .actorsPerThread(3)
             .sequentialSpecification(IntQueueSequential::class.java)
