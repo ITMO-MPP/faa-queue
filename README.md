@@ -1,17 +1,15 @@
-# FAA-Based Queue
-В этом задании вам необходимо реализовать алгоритм очереди, построенного на списке сегментов, 
-где в каждом сегменте хранится массив с элементами очереди. Основная синхронизация внутри сегмента 
-выполняется при помощи операции `Fetch-And-Add` (см. `getAndIncrement()` на соответствующих примитивах), 
-в то время как сегменты образуют односвязные список по подобию очереди Майкла-Скотта.
-Все подробности -- в соответствующей лекции.
+# FAA-based queue
 
-В файле [`src/FAAQueue.kt`](src/FAAQueue.kt) уже содержится однопоточная версия, вам нужно лишь 
-доработать её до многопоточной. Реализация должна быть lock-free.
+In this task, you will implement a concurrent queue that leverages the `Fetch-and-Add` synchronization primitive. 
+The high-level design of this queue bases on a conceptually infinite array for storing elements and manipulates 
+`enqIdx` and `deqIdx` counters, which reference the next working cells in the infinite array for `enqueue(..)` 
+and `dequeue()` operations. The infinite array implementation is usually simulated via a linked list of 
+fixed-size segments. The overall algorithm should be at least obstruction-free.
 
-Полезные статьи:
+Related papers:
 * [Fast Concurrent Queues for x86 Processors](https://www.cs.tau.ac.il/~mad/publications/ppopp2013-x86queues.pdf)
 * [A Wait-free Queue as Fast as Fetch-and-Add](http://chaoran.me/assets/pdf/wfq-ppopp16.pdf)
 
-Для проверки вашего решения запустите из корня репозитория:
-* `./gradlew build` на Linux или MacOS
-* `gradlew build` на Windows
+To test your solution, please run:
+* `./gradlew build` on Linux or MacOS
+* `gradlew build` on Windows

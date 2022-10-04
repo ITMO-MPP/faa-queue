@@ -3,12 +3,12 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.jetbrains.kotlinx:atomicfu-gradle-plugin:0.17.0")
+        classpath("org.jetbrains.kotlinx:atomicfu-gradle-plugin:0.18.3")
     }
 }
 
 plugins {
-    kotlin("jvm") version "1.6.0"
+    kotlin("jvm") version "1.7.10"
     java
 }
 
@@ -32,12 +32,13 @@ dependencies {
     implementation(kotlin("reflect"))
     testImplementation(kotlin("test-junit"))
     testImplementation("org.jetbrains.kotlinx:lincheck:2.14.1")
+    testImplementation("com.amazonaws:aws-java-sdk:1.12.314")
 }
 
-sourceSets["main"].java.setSrcDirs(listOf("src"))
-sourceSets["test"].java.setSrcDirs(listOf("test"))
+sourceSets.main {
+    java.srcDir("src")
+}
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+sourceSets.test {
+    java.srcDir("test")
 }
