@@ -71,7 +71,7 @@ private fun uploadWrongSolutionToS3(strategy: String) = runCatching {
     val solutionFile = File("src/$TASK_NAME.kt")
     val date = java.text.SimpleDateFormat("yyyy-MM-dd-HH-mm").format(java.util.Date())
     val destinationFileLocation = "$YEAR/$TASK_NAME/$TASK_NAME-$date-$strategy-${kotlin.random.Random.nextInt(1000)}.kt"
-    val credentials = BasicAWSCredentials("AKIA27OSP7CBQSGX4IP3", "5IupCDedRavN8h3fmhQEecJrL4M2mKqmy4ozZ9KR")
+    val credentials = BasicAWSCredentials("AKIA27OSP7CB7EEHHOX7", "iyFzeiqHS0amZQj79Jh1DNMy+s96f+fcJvy+BHQu")
     val s3client = AmazonS3ClientBuilder.standard()
         .withCredentials(AWSStaticCredentialsProvider(credentials))
         .withRegion(Regions.US_EAST_2)
