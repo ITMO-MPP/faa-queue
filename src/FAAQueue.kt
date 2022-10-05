@@ -1,3 +1,5 @@
+package mpp.faaqueue
+
 import kotlinx.atomicfu.*
 
 class FAAQueue<E> {
