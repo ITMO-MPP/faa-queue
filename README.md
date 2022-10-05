@@ -11,5 +11,6 @@ Related papers:
 * [A Wait-free Queue as Fast as Fetch-and-Add](http://chaoran.me/assets/pdf/wfq-ppopp16.pdf)
 
 To test your solution, please run:
+
 * `./gradlew build` on Linux or MacOS
 * `gradlew build` on Windows
